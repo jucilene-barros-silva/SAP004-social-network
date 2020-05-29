@@ -6,13 +6,14 @@ export const home = () => {
 
   container.innerHTML = `
     <form>
-      <input id='name' type='text'>
-      <button id='greeting-btn'>Dizer Oi</button>
+      <input id='email' type='text'>
+      <input id=' 
+      <button id='greeting-btn'>Log in</button>
     </form>
     <div id='greeting-message'></div>
   `;
 
-  const name = container.querySelector('#name');
+  const name = container.querySelector('#email');
   const greetingBtn = container.querySelector('#greeting-btn');
   const greetingMessage = container.querySelector('#greeting-message');
 
