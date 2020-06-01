@@ -1,7 +1,7 @@
-export const createAccount = () =>{
-    const contaner = document.createElement('div');
+export const createAccount = () => {
+  const contaner = document.createElement('div');
 
-    const template = `
+  const template = `
     <button id = "login-fa-btn">Entrar com o Facebook</button>
     <button id = "login-go-btn">Entrar com o Google</button>
     <p>OU</p>
@@ -15,15 +15,15 @@ export const createAccount = () =>{
     <p>Tem uma conta? <a href = "/#" >Conecte-se </a></p>
     `;
 
-    const loginFaBtn = document.querySelector("#login-fa-btn");
-    const loginGoBtn = document.querySelector("#login-go-btn");
-    const email = document.querySelector("#email");
-    const fullName = document.querySelector("#full-name");
-    const userName = document.querySelector("#user-name");
-    const password = document.querySelector("#password");
-    const loginBtn = document.querySelector("#login-btn")
+  // const loginFaBtn = document.querySelector('#login-fa-btn');
+  // const loginGoBtn = document.querySelector('#login-go-btn');
+  // const email = document.querySelector('#email');
+  // const fullName = document.querySelector('#full-name');
+  // const userName = document.querySelector('#user-name');
+  // const password = document.querySelector('#password');
+  // const loginBtn = document.querySelector('#login-btn');
 
-    contaner.innerHTML = template;
+  contaner.innerHTML = template;
 
   return contaner;
-} 
+};

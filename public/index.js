@@ -1,29 +1,27 @@
 // Este é o ponto de entrada de sua aplicação
-import routes from "./routes.js";
+import routes from './routes.js';
 
-const main = document.querySelector("#root");
+const main = document.querySelector('#root');
 
-const init = () => {
-  window.addEventListener("hashchange", () => {
-  RenderPage ();
-  })
-}
 
-const RenderPage = () =>{ 
-  main.innerHTML = "";
+const validateHash = hash => (hash === '' ? 'home' : hash.replace('#', ''));
+
+
+const renderPage = () => {
+  main.innerHTML = '';
   const page = validateHash(window.location.hash);
   main.appendChild(routes[page]);
-  
-}
+};
 
-const validateHash = (hash) => hash === "" ? "home" : hash.replace("#","");
-console.log(validateHash)
-window.addEventListener("load", () => {
-  RenderPage();
+const init = () => window.addEventListener('hashchange', renderPage);
+
+window.addEventListener('load', () => {
+  renderPage();
   init();
-})  
+});
 
-// document.querySelector('#root').appendChild(home());
+
+// Função-menu-responsivo
 
 function iconResp() {
   const addClass = document.querySelector('container');

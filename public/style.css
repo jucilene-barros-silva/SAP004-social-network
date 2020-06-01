@@ -1,72 +1,136 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    min-width: 320px;
+
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;    
+    background: linear-gradient(110deg, rgb(243, 241, 236) 0%, rgb(249, 248, 252) 100%);
+        
 }
 
 ul,li {
     list-style: none;
     text-decoration: none;
     text-transform: uppercase;
-    
+   
+}
+
+button{
+    cursor: pointer;
 }
 
 a:link{
     text-decoration: none;
     color: black;
+   
 }
 
-header{
+a:hover{
+    color: yellow
+}
+
+input[type=e-mail], 
+input[type=password] { 
+    width: 70%; 
+    padding: 12px 20px; 
+    margin: 8px 0; 
+    display: inline-block; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+    
+} 
+
+    
+button { 
+    background-color: rgb(207, 21, 114);
+    font-size: 16px;
+    color: white; 
+    padding: 14px 20px; 
+    margin: 8px 0; 
+    border: none; 
+    cursor: pointer; 
+    width: 70%; 
+}
+  
+header, main, footer{
     display: flex;
-    flex-wrap: wrap;    
-
+    flex-wrap: wrap;
+    width: 100%;
+  
 }
 
-.nav-container{
-    display:flex;
-    align-items: center;
+.nav-container{   
     width: 100%;
-    overflow: hidden;
-}
-
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    background-color: silver;
-    width: 100%;
+    position: absolute;
     
 }
 
-.container .icon{
-    display: none;
+.container {
+   display: flex;
+   justify-content: space-between; 
+   align-items: center;  
+   background-color: white;
+   height: 50px;
+   box-shadow: 0px 0 15px rgba(153, 152, 149, 0.952);
+   
+      
 }
 
 
-@media screen and (max-width: 500px) {
-    .container {
+.login-container{
+   padding: 10%;
+   width: 100vw;
+   align-items: center;
+   display:flex;
+   justify-content: center;
+   
+}
+
+.form-container{
+    background-color: white;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   color: black;
+   border-radius: 10px;
+              
+}
+
+
+.footer{
+   background-color: rgb(194, 5, 115);
+   height: 30px;
+   align-items: center;
+   padding: 0 40px;
+   position: absolute;
+   bottom: 0;
+   color: rgb(253, 253, 253);
+   
+}
+
+.logo img {
+   height: auto;
+   max-width: 100%;
+}
+
+.logo-login{
+    margin:15px;
+        
+}
+
+@media screen and (min-width: 1200px){
+    .container{
         display:none;
-    }
-    .container.icon {
-        float: right;
-        display: block;
-    }
-
-    .container.ativo{
-        position: relative;
-    }
-    .container.ativo .icon{
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .container.ativo {
-        display: hidden;
-        float: right;
-        display:block;
     }
 }
