@@ -1,8 +1,9 @@
 
-import { home } from "./pages/home/main.js";
-import { createAccount } from "./pages/login/main.js";
+import { home } from './pages/home/main.js';
+import { createAccount } from './pages/createAccount/main.js';
 
-export default{
+export default {
   home: home(),
-  emailSingnUp: createAccount(),
+  create_account: createAccount(),
+
 };

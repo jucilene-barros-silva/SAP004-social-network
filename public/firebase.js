@@ -1,12 +1,12 @@
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAujpvf2u9ejdy6AsEh93kj-3yQKDmNUQs',
-  authDomain: 'social-network-4801d.firebaseapp.com',
-  databaseURL: 'https://social-network-4801d.firebaseio.com',
-  projectId: 'social-network-4801d',
-  storageBucket: 'social-network-4801d.appspot.com',
-  messagingSenderId: '997757047914',
-  appId: '1:997757047914:web:e88c4fb558eeef8f116613',
+  apiKey: 'AIzaSyAq2EG71JxIFqQGR7FswKlJf3sU3SFZsLY',
+  authDomain: 'social-network-d6767.firebaseapp.com',
+  databaseURL: 'https://social-network-d6767.firebaseio.com',
+  projectId: 'social-network-d6767',
+  storageBucket: 'social-network-d6767.appspot.com',
+  messagingSenderId: '901021817860',
+  appId: '1:901021817860:web:b84c9c4534ae8053e82951',
 };
 // Initialize Firebase
 export const init = firebase.initializeApp(firebaseConfig);

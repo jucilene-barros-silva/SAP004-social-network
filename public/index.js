@@ -13,8 +13,8 @@ const renderPage = () => {
   main.appendChild(routes[page]);
 };
 
-const init = () => window.addEventListener('hashchange', renderPage);
 
+const init = () => window.addEventListener('hashchange', renderPage);
 window.addEventListener('load', () => {
   renderPage();
   init();

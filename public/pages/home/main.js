@@ -24,13 +24,11 @@ export const home = () => {
             <a href = "https://www.facebook.com/"><i class="fab fa-facebook fa-3x"></i></a>
             <a href = "https://accounts.google.com/"><i class="fab fa-google fa-3x"></i></a>
           </figure>
-          <p>Não tem uma conta? <a href = "#emailSingnUp">Cadastre-se</a></p>
+          <p>Não tem uma conta? <a href = "#create_account">Cadastre-se</a></p>
         </div>
       </div>
     `;
-  // const email = document.querySelector("#email");
-  // const password = document.querySelector("#password");
-  // const loginBtn = document.querySelector("#login-btn");
+
 
   container.innerHTML = template;
 
