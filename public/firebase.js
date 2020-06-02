@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
   apiKey: 'AIzaSyAq2EG71JxIFqQGR7FswKlJf3sU3SFZsLY',
   authDomain: 'social-network-d6767.firebaseapp.com',
@@ -8,7 +7,7 @@ const firebaseConfig = {
   messagingSenderId: '901021817860',
   appId: '1:901021817860:web:b84c9c4534ae8053e82951',
 };
-// Initialize Firebase
-// export const init = firebase.initializeApp(firebaseConfig);
-// export const auth = firebase.auth();
-// export const firestore = firebase.firestore();
+
+firebase.auth();
+firebase.firestore();
+firebase.initializeApp(firebaseConfig);

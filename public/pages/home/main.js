@@ -1,8 +1,7 @@
 // Aqui serão criados os eventos de Manipulação de DOM e templates
-// import {
-//   greeting
-// } from "./data.js";
-// Initialize the FirebaseUI Widget using Firebase.
+import {
+  createUser,
+} from './data.js';
 
 
 export const home = () => {
@@ -31,6 +30,14 @@ export const home = () => {
 
 
   container.innerHTML = template;
+
+  const loginBtn = container.querySelector('#login-btn');
+  loginBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = container.querySelector('#email').value;
+    const password = container.querySelector('#password').value;
+    createUser(email, password);
+  });
 
   return container;
 };
