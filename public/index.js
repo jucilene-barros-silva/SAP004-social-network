@@ -1,32 +1,31 @@
 // Este é o ponto de entrada de sua aplicação
-import routes from "./routes.js";
 
-const main = document.querySelector("#root");
+import routes from './routes.js';
 
-const init = () => {
-  window.addEventListener("hashchange", () => {
-  RenderPage ();
-  })
-}
+const main = document.querySelector('#root');
 
-const RenderPage = () =>{ 
-  main.innerHTML = "";
+
+const validateHash = hash => (hash === '' ? 'home' : hash.replace('#', ''));
+
+
+const renderPage = () => {
+  main.innerHTML = '';
   const page = validateHash(window.location.hash);
   main.appendChild(routes[page]);
-  
-}
+};
 
-const validateHash = (hash) => hash === "" ? "home" : hash.replace("#","");
-console.log(validateHash)
-window.addEventListener("load", () => {
-  RenderPage();
-  init();
-})  
+const loading = () => window.addEventListener('hashchange', renderPage);
 
-// document.querySelector('#root').appendChild(home());
+window.addEventListener('load', () => {
+  renderPage();
+  loading();
+});
+
+
+// Função-menu-responsivo
 
 function iconResp() {
-  const addClass = document.querySelector('container');
+  const addClass = document.querySelector('.container');
 
   if (addClass.className === 'container') {
     addClass.className += 'ativo';
@@ -35,7 +34,7 @@ function iconResp() {
   }
 }
 
-const menu = document.querySelector('icon');
+const menu = document.querySelector('.icon');
 menu.addEventListener('click', (e) => {
   e.preventDefault();
   iconResp();
