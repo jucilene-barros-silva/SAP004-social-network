@@ -6,6 +6,7 @@
     height: 100vh;
     align-items: center;
     justify-content: center;
+    
 }
 
 .login-container .logo{    
@@ -19,11 +20,14 @@
 }
  
 .form-container {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
+    width: 90%;    
 }
 
+.form-login{    
+    display: flex;
+    flex-direction: column;
+      
+}
 
 button { 
     background-color: rgb(247, 71, 79);

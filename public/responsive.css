@@ -1,0 +1,21 @@
+@media screen and (min-width: 425px) {
+    .form-container{
+        max-width: 400px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .login-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .form-container{
+        max-width: 400px;
+
+    }
+    .logo img{
+        width: 550px;
+        height: 450px;
+   }
+}
