@@ -1,0 +1,14 @@
+.register-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h3{
+    color: black;
+}
+
+.form-register{
+    display: flex;
+    flex-direction: column;
+}
