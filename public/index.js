@@ -1,5 +1,3 @@
-// Este é o ponto de entrada de sua aplicação
-
 import routes from './routes.js';
 
 const main = document.querySelector('#root');
@@ -22,20 +20,20 @@ window.addEventListener('load', () => {
 });
 
 
-// Função-menu-responsivo
+// // Função-menu-responsivo
 
-function iconResp() {
-  const addClass = document.querySelector('.container');
+// function iconResp() {
+//   const addClass = document.querySelector('.container');
 
-  if (addClass.className === 'container') {
-    addClass.className += 'ativo';
-  } else {
-    addClass.className = 'container';
-  }
-}
+//   if (addClass.className === 'container') {
+//     addClass.className += 'ativo';
+//   } else {
+//     addClass.className = 'container';
+//   }
+// }
 
-const menu = document.querySelector('.icon');
-menu.addEventListener('click', (e) => {
-  e.preventDefault();
-  iconResp();
-});
+// const menu = document.querySelector('.icon');
+// menu.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   iconResp();
+// });

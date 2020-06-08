@@ -15,8 +15,9 @@
 }
 
 .logo img {
-    width: 340px;
-    height: 300px;    
+    width: 320px;
+    height: 300px;
+    object-fit: cover;
 }
  
 .form-container {
@@ -48,7 +49,8 @@ button:hover{
 }
 
 input[type=e-mail], 
-input[type=password] { 
+input[type=password],
+input[type=text] { 
    
     padding: 12px 20px; 
     margin: 8px 0; 
@@ -72,6 +74,11 @@ input[type=password] {
     font-size: 16px;
     color: black;
     justify-content: center;
+}
+
+.login-google .google:hover {
+    background: rgb(236, 234, 234);
+    
 }
 
 .login-google .img{

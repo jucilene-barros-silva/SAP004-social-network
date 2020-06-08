@@ -2,6 +2,16 @@
     .form-container{
         max-width: 400px;
     }
+
+    .register-container {
+        display: inline-block;
+    }
+     
+    .form-register {
+        align-content: center;
+        
+       
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -17,5 +27,18 @@
     .logo img{
         width: 550px;
         height: 450px;
+   }
+
+   .register-titulo {
+       margin-top: 8%;
+   }
+
+   .form-register {
+       justify-content: center;
+   }
+
+   .register-container {
+       display: flex;
+       align-items: center;
    }
 }
