@@ -7,7 +7,7 @@ export const perfil = () => {
       <div class="perfil-container">
                   
          <h1>Página Perfil</h1> 
-         <button>Eu estou aqui...</button>
+         
 
       </div>
     `;

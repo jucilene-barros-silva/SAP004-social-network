@@ -1,4 +1,4 @@
-import { createUser } from './data.js';
+import { createUser, observador } from './data.js';
 
 
 export const createAccount = () => {

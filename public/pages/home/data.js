@@ -3,7 +3,7 @@ export function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      window.location.href = '#perfil';
+      window.location.href = '#feed';
       const token = result.credential.accessToken;
       const user = result.user;
       return (token, user);
@@ -18,7 +18,7 @@ export function loginGoogle() {
 export function loginEmailAndPass(email, password) {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((result) => {
-      window.location.href = '#perfil';
+      window.location.href = '#feed';
       const token = result.uid;
       const user = result.user;
       return (token, user);
@@ -34,19 +34,29 @@ export function loginEmailAndPass(email, password) {
 }
 
 
-// export function logout() {
-//   firebase.auth().signOut().then(function() {
+export function logout() {
+  firebase.auth().signOut().then(() => {
+    window.location.href = '#';
+  });
+}
 
-//   }).catch(function(error) {
+const btLogout = document.querySelector('.logout');
+btLogout.addEventListener('click', () => {
+  logout();
+});
 
-//   });
-// }
+function showHeader() {
+  const header = document.getElementById('header');
+  header.classList.toggle('block');
+  // header.style.display = 'block';
+}
 
-
-// export function observador() {
-//   firebase.auth().onAuthStateChanged(function(user) {
-//     if (user) {
-//       // User is signed in.
-//     }
-//   });
-// }
+export function observador() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in.
+      showHeader();
+      window.location.href = '#feed';
+    }
+  });
+}
