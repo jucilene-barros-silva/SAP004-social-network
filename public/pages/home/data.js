@@ -33,22 +33,14 @@ export function loginEmailAndPass(email, password) {
     });
 }
 
-
-export function logout() {
-  firebase.auth().signOut().then(() => {
-    window.location.href = '#';
-  });
-}
-
-const btLogout = document.querySelector('.logout');
-btLogout.addEventListener('click', () => {
-  logout();
-});
-
-function showHeader() {
+export function showHeader() {
   const header = document.getElementById('header');
-  header.classList.toggle('block');
-  // header.style.display = 'block';
+  if (window.location.href === '#feed') {
+    header.style.display('');
+  } 
+  // else {
+  //   header.style.display = 'none';
+  // }
 }
 
 export function observador() {
@@ -60,3 +52,15 @@ export function observador() {
     }
   });
 }
+
+export function logout() {
+  firebase.auth().signOut().then(() => {
+    window.location.href = '#';
+  });
+}
+
+const btLogout = document.querySelector('.logout');
+btLogout.addEventListener('click', () => {
+  logout();
+  showHeader();
+});
