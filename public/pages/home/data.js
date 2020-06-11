@@ -1,9 +1,14 @@
+export function showHeader() {
+  const header = document.getElementById('header');
+  if (window.location.href === '#feed') header.classList = 'block';
+}
 
 export function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
       window.location.href = '#feed';
+      showHeader();
       const token = result.credential.accessToken;
       const user = result.user;
       return (token, user);
@@ -26,7 +31,8 @@ export function loginEmailAndPass(email, password) {
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
         return ('Senha incorreta!');
-      } if (error.code === 'auth/user-not-found') {
+      }
+      if (error.code === 'auth/user-not-found') {
         return ('E-mail não localizado!');
       }
       return (`Codigo de error: ${error.code}`);
@@ -47,8 +53,8 @@ export function observador() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is signed in.
-      showHeader();
       window.location.href = '#feed';
+      showHeader();
     }
   });
 }

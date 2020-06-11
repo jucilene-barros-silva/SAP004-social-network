@@ -41,12 +41,8 @@ a:hover{
     color: rgb(38, 0, 255)
 }
 
-.header {
-    display: none;
-}
-
-.header .block {
-    display: "";
+header {
+    display:none;
 }
 
 .footer{
