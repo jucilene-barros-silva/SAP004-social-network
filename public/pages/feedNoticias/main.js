@@ -44,10 +44,15 @@ export const feed = () => {
     allPosts.innerHTML = array.map(post => `<p>${post.text}</p>`).join('');
   };
 
+
+  const postTemplate = (array) => {
+    postsDone.innerHTML = array.map(post => `<p>${post.name}</p> <p>${post.like}</p> `).join('');
+  };
+
   postBtn.addEventListener('click', (e) => {
     e.preventDefault();
     createPost(posts.value);
-    allPosts.innerHTML = '';
+    postsDone.innerHTML = '';
     readPost(postTemplate);
   });
   return container;
