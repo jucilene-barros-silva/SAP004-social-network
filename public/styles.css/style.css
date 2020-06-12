@@ -39,11 +39,9 @@ a:link{
 a:hover{
     color: rgb(38, 0, 255)
 }
-#header{
-   display: none;
-   flex-wrap: wrap;
 
-    
+#header{
+   display: none;  
 }
 
 #header img{
@@ -52,8 +50,7 @@ a:hover{
 }
 
 #header.block{
-    display:block;
-    
+    display:block;    
 }
 
 .footer{

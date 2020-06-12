@@ -25,7 +25,8 @@ export function loginEmailAndPass(email, password) {
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
         return 'Senha incorreta!';
-      } if (error.code === 'auth/user-not-found') {
+      }
+      if (error.code === 'auth/user-not-found') {
         return 'E-mail não localizado!';
       }
       return `Codigo de error: ${error.code}`;

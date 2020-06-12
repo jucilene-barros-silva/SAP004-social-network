@@ -40,22 +40,14 @@ export const feed = () => {
   const postBtn = container.querySelector('.post-btn');
   // const allPosts = container.querySelector('.all-posts');
 
-  // const usernamePost = container.querySelector('.username-post');
-  // const closeBtnPost = container.querySelector('.close-btn-post');
-  const postsDone = container.querySelector('.posts-done');
-  // const likeBtn = container.querySelector('.like-btn');
-  // const commentBtn = container.querySelector('.comment-btn');
-  // const sendBtn = container.querySelector('.send-btn');
-
-
   const postTemplate = (array) => {
-    postsDone.innerHTML = array.map(post => `<p>${post.name}</p> <p>${post.like}</p> `).join('');
+    allPosts.innerHTML = array.map(post => `<p>${post.text}</p>`).join('');
   };
 
   postBtn.addEventListener('click', (e) => {
     e.preventDefault();
     createPost(posts.value);
-    postsDone.innerHTML = '';
+    allPosts.innerHTML = '';
     readPost(postTemplate);
   });
   return container;
