@@ -16,7 +16,7 @@ export function loginGoogle() {
 }
 
 export function loginEmailAndPass(email, password) {
-  firebase.auth().signInWithEmailAndPassword(email, password)
+  return firebase.auth().signInWithEmailAndPassword(email, password)
     .then((result) => {
       window.location.href = '#feed';
       const token = result.uid;
@@ -25,29 +25,25 @@ export function loginEmailAndPass(email, password) {
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
-        return ('Senha incorreta!');
+        return 'Senha incorreta!';
       } if (error.code === 'auth/user-not-found') {
-        return ('E-mail não localizado!');
+        return 'E-mail não localizado!';
       }
-      return (`Codigo de error: ${error.code}`);
+      return `Codigo de error: ${error.code}`;
     });
 }
 
-export function showHeader() {
-  const header = document.getElementById('header');
-  if (window.location.href === '#feed') {
-    header.style.display('');
-  } 
-  // else {
-  //   header.style.display = 'none';
-  // }
-}
+// export function showHeader() {
+//   const header = document.querySelector('.header');
+//   header.classList
+//   return header;
+// }
 
 export function observador() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is signed in.
-      showHeader();
+      // showHeader();
       window.location.href = '#feed';
     }
   });
@@ -62,5 +58,5 @@ export function logout() {
 const btLogout = document.querySelector('.logout');
 btLogout.addEventListener('click', () => {
   logout();
-  showHeader();
+  // showHeader();
 });
