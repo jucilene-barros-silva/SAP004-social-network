@@ -40,7 +40,7 @@ a:hover{
     color: rgb(38, 0, 255)
 }
 #header{
-   display: flex;
+   display: none;
    flex-wrap: wrap;
 
     
@@ -51,7 +51,7 @@ a:hover{
     height: 80px;
 }
 
-.header.block{
+#header.block{
     display:block;
     
 }
