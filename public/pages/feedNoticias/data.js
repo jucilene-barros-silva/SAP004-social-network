@@ -1,6 +1,6 @@
 
 export const createPost = (text) => {
-  firebase.batchcollection('posts').add({
+  firebase.firestore().collection('posts').add({
     name: text,
     like: 0,
   })
@@ -15,7 +15,7 @@ export const createPost = (text) => {
 // firebase.collection('cities').where('state', '==', 'CA')
 
 export const readPost = (callBack) => {
-  firebase.collection('post')
+  firebase.firestore().collection('post')
     .onSnapshot((querySnapshot) => {
       const posts = [];
       querySnapshot.forEach((doc) => {

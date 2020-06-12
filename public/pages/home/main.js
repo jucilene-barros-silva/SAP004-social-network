@@ -1,7 +1,5 @@
 // Aqui serão criados os eventos de Manipulação de DOM e templates
-import {
-  loginGoogle, loginEmailAndPass, observador,
-} from './data.js';
+import { loginGoogle, loginEmailAndPass, observador } from './data.js';
 
 
 export const home = () => {

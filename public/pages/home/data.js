@@ -1,14 +1,8 @@
-export function showHeader() {
-  const header = document.getElementById('header');
-  if (window.location.href === '#feed') header.classList = 'block';
-}
-
 export function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
       window.location.href = '#feed';
-      showHeader();
       const token = result.credential.accessToken;
       const user = result.user;
       return (token, user);
@@ -41,12 +35,7 @@ export function loginEmailAndPass(email, password) {
 
 export function showHeader() {
   const header = document.getElementById('header');
-  if (window.location.href === '#feed') {
-    header.style.display('');
-  } 
-  // else {
-  //   header.style.display = 'none';
-  // }
+  header.classList.toggle('block');
 }
 
 export function observador() {
