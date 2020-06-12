@@ -18,10 +18,10 @@ export const feed = () => {
       <div class="all-posts">
         <form>
           <div>
-            <span class="">EX: Publicado por </span>
-            <button class="close-btn"></button>
+            <span class="username-post">EX: Publicado por </span>
+            <button class="close-btn-post"></button>
           </div>
-          <textarea class="" type="text"></textarea>
+          <div class="posts-done" type="text"></div>
           <div>
             <button class="like-btn"><3</button>
             <span class="n-like">2</span>
@@ -38,20 +38,25 @@ export const feed = () => {
   const posts = container.querySelector('.posts');
   // const photoBtn = container.querySelector('.photo-btn');
   const postBtn = container.querySelector('.post-btn');
-  const allPosts = container.querySelector('.all-posts');
+  // const allPosts = container.querySelector('.all-posts');
+
+  // const usernamePost = container.querySelector('.username-post');
+  // const closeBtnPost = container.querySelector('.close-btn-post');
+  const postsDone = container.querySelector('.posts-done');
+  // const likeBtn = container.querySelector('.like-btn');
+  // const commentBtn = container.querySelector('.comment-btn');
+  // const sendBtn = container.querySelector('.send-btn');
+
+
+  const postTemplate = (array) => {
+    postsDone.innerHTML = array.map(post => `<p>${post.name}</p> <p>${post.like}</p> `).join('');
+  };
 
   postBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(posts.value);
     createPost(posts.value);
-    allPosts.innerHTML = '';
-
-    const postTemplate = (array) => {
-      allPosts.innerHTML = array.map(post => `<p>${post.text}</p>`).join('');
-    };
-
+    postsDone.innerHTML = '';
     readPost(postTemplate);
   });
-
   return container;
 };

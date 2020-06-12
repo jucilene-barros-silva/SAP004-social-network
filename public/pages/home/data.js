@@ -15,7 +15,7 @@ export function loginGoogle() {
 }
 
 export function loginEmailAndPass(email, password) {
-  firebase.auth().signInWithEmailAndPassword(email, password)
+  return firebase.auth().signInWithEmailAndPassword(email, password)
     .then((result) => {
       window.location.href = '#feed';
       const token = result.uid;
@@ -24,12 +24,11 @@ export function loginEmailAndPass(email, password) {
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
-        return ('Senha incorreta!');
+        return 'Senha incorreta!';
+      } if (error.code === 'auth/user-not-found') {
+        return 'E-mail não localizado!';
       }
-      if (error.code === 'auth/user-not-found') {
-        return ('E-mail não localizado!');
-      }
-      return (`Codigo de error: ${error.code}`);
+      return `Codigo de error: ${error.code}`;
     });
 }
 
@@ -41,7 +40,6 @@ export function showHeader() {
 export function observador() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      // User is signed in.
       window.location.href = '#feed';
       showHeader();
     }
