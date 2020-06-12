@@ -12,9 +12,9 @@ export const home = () => {
         </div>
         <div class="form-container">
           <form class="form-login">
-            <span class="error"></span>
             <input id = "email" type="e-mail" name = "email" placeholder = "E-mail" >
             <input id = "password" type = "password" name = "password"placeholder = "Senha">
+            <span class="error"></span>
             <button id = "login-btn">Login</button>
             </form>
             <div class="link-senha"><a href="#">Esqueceu a senha?</a></div>     
@@ -36,9 +36,11 @@ export const home = () => {
     e.preventDefault();
     const email = container.querySelector('#email').value;
     const password = container.querySelector('#password').value;
-    // const error = container.querySelector('.error');
-    loginEmailAndPass(email, password);
-    // error.innerHTML = result;
+    const error = container.querySelector('.error');
+    console.log(loginEmailAndPass(email, password));
+    error.innerHTML = loginEmailAndPass(email, password).then((result) => {
+      error.innerHTML = result;
+    });
   });
 
   const btGoogle = container.querySelector('.login-google .google');

@@ -12,16 +12,16 @@ export const createPost = (text) => {
     });
 };
 
-// firebase.collection('cities').where('state', '==', 'CA')
 
 export const readPost = (callBack) => {
-  firebase.firestore().collection('post')
+
+  firebase.firestore().collection('posts')
     .onSnapshot((querySnapshot) => {
       const posts = [];
       querySnapshot.forEach((doc) => {
         posts.push(doc.data());
       });
-
+      console.log(callBack(posts));
       callBack(posts);
     });
 };
