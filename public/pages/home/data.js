@@ -1,4 +1,3 @@
-
 export function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
@@ -26,25 +25,25 @@ export function loginEmailAndPass(email, password) {
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
         return 'Senha incorreta!';
-      } if (error.code === 'auth/user-not-found') {
+      } else (error.code === 'auth/user-not-found') {
         return 'E-mail não localizado!';
       }
       return `Codigo de error: ${error.code}`;
     });
 }
 
-// export function showHeader() {
-//   const header = document.querySelector('.header');
-//   header.classList
-//   return header;
-// }
+export function showHeader() {
+  const header = document.getElementById('header');
+  header.classList.toggle('block');
+}
 
 export function observador() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is signed in.
-      // showHeader();
+
       window.location.href = '#feed';
+      showHeader();
     }
   });
 }

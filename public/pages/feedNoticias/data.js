@@ -12,9 +12,9 @@ export const createPost = (text) => {
     });
 };
 
-// firebase.collection('cities').where('state', '==', 'CA')
 
 export const readPost = (callBack) => {
+
   firebase.firestore().collection('posts')
     .onSnapshot((querySnapshot) => {
       const posts = [];

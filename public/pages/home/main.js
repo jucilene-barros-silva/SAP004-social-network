@@ -47,7 +47,6 @@ export const home = () => {
   btGoogle.addEventListener('click', () => {
     loginGoogle();
   });
-
   observador();
   return container;
 };
