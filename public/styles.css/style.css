@@ -6,8 +6,7 @@
 
 :root {
     --title-color: black;
-    --primary-color:#34cb79;
-    --second-color: #E8505B;
+    --primary-color: #E8505B;
 }
 
 html{
@@ -41,12 +40,34 @@ a:hover{
     color: rgb(38, 0, 255)
 }
 
-.header {
-    display: none;
+#header {
+   display: none;
+   background-color:  rgb(231, 20, 20);
+   padding: 5px;
 }
 
-.header .block {
-    display: "";
+#header a {
+    color: white;
+    text-decoration: none;
+}
+#header.block{
+    display:block;
+    
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.item img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;  
 }
 
 .footer{
