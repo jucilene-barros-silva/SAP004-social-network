@@ -1,4 +1,4 @@
-import { createPost, readPost } from './data.js';
+import { createPost, readPost, deletePost } from './data.js';
 
 export const feed = () => {
   const container = document.createElement('div');
@@ -55,5 +55,13 @@ export const feed = () => {
     createPost(msg.value);
     msgFeed.innerHTML = '';
   });
+
+  // const postId = container.querySelector('click', e => e.target.id);
+  // console.log(postId);
+  // closeBtnPost.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   console.log(deletePost(postId));
+  //   deletePost(postId);
+  // });
   return container;
 };

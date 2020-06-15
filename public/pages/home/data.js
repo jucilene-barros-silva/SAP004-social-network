@@ -27,8 +27,9 @@ export function loginEmailAndPass(email, password) {
         return 'Senha incorreta!';
       } if (error.code === 'auth/user-not-found') {
         return 'E-mail não localizado!';
-      }
-      return `Codigo de error: ${error.code}`;
+      } if (error.code === 'auth/invalid-email') {
+        return 'E-mail invalido!';
+      } return `Codigo de error: ${error.code}`;
     });
 }
 
