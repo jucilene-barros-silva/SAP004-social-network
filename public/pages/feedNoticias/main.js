@@ -2,6 +2,7 @@ import { createPost, readPost } from './data.js';
 
 export const feed = () => {
   const container = document.createElement('div');
+  container.classList.add('feedcontainer');
 
   container.innerHTML = `
     <div class="feed">
@@ -14,9 +15,11 @@ export const feed = () => {
         <textarea class="posts" type="text"></textarea>
         </div>
         <div class="btn">
-          <li><img src="./img/heart.svg" /></li>
-          <li><img src="./img/add.svg" /></li>
-          <li><img class="btn-send" src="./img/seta.svg" /></li>          
+          <li><img id='icones' src="./img/heart.svg" /></li>
+          <li><img id='icones' src="./img/add.svg" /></li>
+          <li><img id='icones' class ="unblock" src="../img/publico.svg" /></li>
+          <li><img id='icones' class ="unblock" src="../img/privado.svg" /></li>
+          <li><img id='icones' class="btn-send" src="./img/seta.svg" /></li>          
         </div>
       </form>
       
@@ -26,7 +29,8 @@ export const feed = () => {
   // const photoBtn = container.querySelector('.photo-btn');
   // const photo = container.querySelector('.img-user');
   // const username = container.querySelector('.username');
-
+  // const block = container.querySelector('.block');
+  const unblock = container.querySelector('.unblock');
   const msgFeed = container.querySelector('.msg-feed');
   const btnSend = container.querySelector('.btn-send');
 
@@ -35,12 +39,15 @@ export const feed = () => {
      <div class="feed">
       <div class="name-user">
         <img src="./img/user.svg" class="img-user"/>${post.name}
+        <span>${post.data}</span>
       </div>
       <div>
-        <textarea class="posts" type="text">${post.message}</textarea>
+        <textarea readonly class="posts" type="text">${post.message}</textarea>
         <div class="btn">
         <li><img src="./img/heart.svg" />${post.like}</li>
         <li><img src="./img/deletar.svg" /></li>
+        <li><img src="./img/privado.svg" />${post.privado}</li>
+        <li><img src="./img/publico.svg" /></li>
         <li><img class="post-btn" src="./img/seta.svg" /></li>
         </div>
         </div>
@@ -48,6 +55,7 @@ export const feed = () => {
  
  `).join('');
   };
+
   readPost(postTemplate);
   btnSend.addEventListener('click', (e) => {
     e.preventDefault();
@@ -55,5 +63,12 @@ export const feed = () => {
     createPost(msg.value);
     msgFeed.innerHTML = '';
   });
+
+  unblock.addEventListener('click', (e) => {
+    e.preventDefault();
+    unblock.classList.toggle('block');
+  });
+
+
   return container;
 };

@@ -10,10 +10,10 @@ export const createAccount = () => {
       <div class="register-form">
     <h3>Cadastre e entre para a nossa comunidade.</h3>
       <form method= "post" class="form-register">
-        <input id="email" type= "e-mail" placeholder = "E-mail" >
-        <input id="full-name" type= "text" placeholder = "Nome completo">
-        <input id="user-name" type= "text" placeholder = "Nome de usuário">
-        <input id="password" type= "password" placeholder = "Password">    
+        <input id="email" type= "e-mail" placeholder = "E-mail" requered>
+        <input id="full-name" type= "text" placeholder = "Nome completo" requered>
+        <input id="user-name" type= "text" placeholder = "Nome de usuário" requered>
+        <input id="password" type= "password" placeholder = "Password" requered>    
         <button type="submit" class="btCadastro">Cadastre-se</button>
         <div class="register-home">
         <p>Tem uma conta? <a href = "/#">Faça login</a></p>

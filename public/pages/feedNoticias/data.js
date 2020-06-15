@@ -1,8 +1,11 @@
 
 export const createPost = text => firebase.firestore().collection('posts').add({
-  name: text,
+  id: firebase.auth().currentUser.uid,
+  name: firebase.auth().currentUser.displayName,
   message: text,
   like: 0,
+  data: firebase.firestore.FieldValue.serverTimestamp(),
+  privado: 'falso',
 })
   .then(docRef => (('Document written with ID: ', docRef.id)))
   .catch(error => (('Error adding document: ', error)));
