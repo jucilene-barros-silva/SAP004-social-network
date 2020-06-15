@@ -1,24 +1,17 @@
 
-// export function addUser(uid) {
-//   firebase.firestore().collection('users').doc(uid).set({
-//     fullName: 'milena ferrrazzz',
-//     userName: 'mileninha',
-//   })
-//     .then((docRef) => {
-//       console.log('Document written with ID: ', docRef.id);
-//     })
-//     .catch((error) => {
-//       console.error('Error adding document: ', error);
-//     });
-// }
+function register(uid, fullName, userName) {
+  const db = firebase.firestore();
+  const authUid = firebase.auth().currentUser.uid;
+  db.collection('users').doc(authUid).set({
+    userUid: uid,
+    name: fullName,
+    nickName: userName,
+  });
+}
 
 export function createUser(email, password, fullName, userName) {
-  const auth = firebase.auth();
-  const db = firebase.firestore().collection('users');
-  auth.createUserWithEmailAndPassword(email, password)
-    .then(el => db.doc(el.user.uid).set({
-      nickname: userName,
-      namefull: fullName,
-    })).then(() => '??????')
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(() => firebase.auth().currentUser.updateProfile({ displayName: `${userName}` }))
+    .then(() => { const uid = firebase.auth().currentUser.uid; register(uid, fullName, userName); })
     .catch(error => `Codígo de error: ${error.message}`);
 }

@@ -31,17 +31,21 @@
     align-items: center;
 }
 
-
+.icones,
 .btn img {
     width: 25px;
     height: 25px;
     cursor: pointer;    
 }
 
+textarea {
+    resize: "none";
+}
+
 .posts {
     margin: 0px;
     width: 100%;
-    height: 33px;
+    height: 80px;
 }
 
 .msg1 {
@@ -51,3 +55,4 @@
 .feed {
     margin: 10px;
 }
+
