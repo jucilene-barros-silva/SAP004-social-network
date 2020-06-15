@@ -27,5 +27,20 @@
    .register-form {
        max-width: 692px;
    }
+
+   .register-container {
+       flex-direction: row;
+       justify-content: space-evenly;
+   }
+
+   .register-container img {
+       width: 400px;
+       height: 400px;
+   }
+   .register-form {
+       flex-direction: column;
+       max-width: 400px;
+   }
 }
+
 

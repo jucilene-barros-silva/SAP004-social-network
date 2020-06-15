@@ -17,7 +17,7 @@
 .logo img {
     width: 320px;
     height: 300px;
-    object-fit: cover;
+    
 }
  
 .form-container {
@@ -101,3 +101,7 @@ input[type=text] {
     justify-content: center;
 }
 
+.form-container span {
+    font-size: 12px;
+    color: red;
+}

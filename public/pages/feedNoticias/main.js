@@ -5,58 +5,55 @@ export const feed = () => {
 
   container.innerHTML = `
     <div class="feed">
-      <form>
+      <div class="name-user">
         <img src="./img/avatar.png" class="img-user"/>
-        <span class="username">Ex: Beatriz Santos</span>
-        <span class="">Complemento</span>
-        <textarea class="posts" type="text"></textarea>
-        <div>
-          <button class="photo-btn">i</button>
-          <button class="post-btn">Publicar</button>
-        </div>
-      </form>        
-      <div class="all-posts">
-        <form>
-          <div>
-            <span class="username-post">EX: Publicado por </span>
-            <button class="close-btn-post"></button>
-          </div>
-          <div class="posts-done" type="text"></div>
-          <div>
-            <button class="like-btn"><3</button>
-            <span class="n-like">2</span>
-            <button class="comment-btn">[=]</button>
-            <button class="send-btn">>></button>
-          </div>
-        <form>
+        <span class="username">Beatriz Santos</span>
       </div>
-    </div>
+      <form>
+        <div class="msg">        
+        <textarea class="posts" type="text"></textarea>
+        </div>
+        <div class="btn">
+          <li><img src="./img/heart.svg" /></li>
+          <li><img src="./img/add.svg" /></li>
+          <li><img class="btn-send" src="./img/seta.svg" /></li>          
+        </div>
+      </form>
+      
+      </div>
+      <div class="msg-feed"></div>  
   `;
-
+  // const photoBtn = container.querySelector('.photo-btn');
   // const photo = container.querySelector('.img-user');
   // const username = container.querySelector('.username');
-  const posts = container.querySelector('.posts');
-  // const photoBtn = container.querySelector('.photo-btn');
-  const postBtn = container.querySelector('.post-btn');
-  // const allPosts = container.querySelector('.all-posts');
 
-  // const usernamePost = container.querySelector('.username-post');
-  // const closeBtnPost = container.querySelector('.close-btn-post');
-  const postsDone = container.querySelector('.posts-done');
-  // const likeBtn = container.querySelector('.like-btn');
-  // const commentBtn = container.querySelector('.comment-btn');
-  // const sendBtn = container.querySelector('.send-btn');
-
+  const msgFeed = container.querySelector('.msg-feed');
+  const btnSend = container.querySelector('.btn-send');
 
   const postTemplate = (array) => {
-    postsDone.innerHTML = array.map(post => `<p>${post.name}</p> <p>${post.like}</p> `).join('');
+    msgFeed.innerHTML = array.map(post => `
+     <div class="feed">
+      <div class="name-user">
+        <img src="./img/user.svg" class="img-user"/>${post.name}
+      </div>
+      <div>
+        <textarea class="posts" type="text">${post.message}</textarea>
+        <div class="btn">
+        <li><img src="./img/heart.svg" />${post.like}</li>
+        <li><img src="./img/deletar.svg" /></li>
+        <li><img class="post-btn" src="./img/seta.svg" /></li>
+        </div>
+        </div>
+      </div> 
+ 
+ `).join('');
   };
-
-  postBtn.addEventListener('click', (e) => {
+  readPost(postTemplate);
+  btnSend.addEventListener('click', (e) => {
     e.preventDefault();
-    createPost(posts.value);
-    postsDone.innerHTML = '';
-    readPost(postTemplate);
+    const msg = container.querySelector('.posts');
+    createPost(msg.value);
+    msgFeed.innerHTML = '';
   });
   return container;
 };

@@ -4,30 +4,42 @@
     align-items: center;    
     width: 100vw;
     height: 100vh;
-
+    
 }
 
-.register-titulo{
+
+img {
+    width: 220px;
+    height: 300px;
+    
+}
+
+.register-form h3 {
     color: black;
-    margin-bottom: 40px;
-    margin-top: 100px;
+    margin: 20px 0;
     text-align: center;
 
 }
 
 .register-form {
     width: 90%;
-    align-content: center;
+    
     
 }
 
 .form-register{
     display: flex;
     flex-direction: column;
+        
 }
 
-.register-home{
-   align-items: center;
-   font-size: 13px;
-   margin-top: 10px;
+.form-register p {   
+    font-size: 13px;
+    margin-top: 10px;
+    
+}
+
+.register-home {
+    justify-content: center;
+    display: flex;
 }

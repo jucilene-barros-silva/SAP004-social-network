@@ -20,7 +20,7 @@ export function loginEmailAndPass(email, password) {
       window.location.href = '#feed';
       const token = result.uid;
       const user = result.user;
-      return (token, user);
+      console.log(token, user);
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
