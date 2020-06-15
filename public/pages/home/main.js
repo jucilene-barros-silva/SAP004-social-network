@@ -8,7 +8,7 @@ export const home = () => {
   const template = `
       <div class="login-container">
         <div class="logo">
-          <img src="./img/logo.png" />
+          <img src="./img/logo2.svg" />
         </div>
         <div class="form-container">
           <form class="form-login">

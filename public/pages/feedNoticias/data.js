@@ -1,14 +1,11 @@
 
 export const createPost = text => firebase.firestore().collection('posts').add({
   name: text,
+  message: text,
   like: 0,
 })
-  .then((docRef) => {
-    console.log('Document written with ID: ', docRef.id);
-  })
-  .catch((error) => {
-    console.error('Error adding document: ', error);
-  });
+  .then(docRef => (('Document written with ID: ', docRef.id)))
+  .catch(error => (('Error adding document: ', error)));
 
 
 export const readPost = callback => firebase.firestore().collection('posts')
