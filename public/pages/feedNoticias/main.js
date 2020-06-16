@@ -8,7 +8,7 @@ export const feed = () => {
     <div class="feed">
       <div class="name-user">
         <img src="./img/avatar.png" class="img-user"/>
-        <span class="username">Beatriz Santos</span>
+        <span class="username"></span>
       </div>
       <form>
         <div class="msg">        
@@ -36,22 +36,24 @@ export const feed = () => {
 
   const postTemplate = (array) => {
     msgFeed.innerHTML = array.map(post => `
-     <div class="feed">
-      <div class="name-user">
-        <img src="./img/user.svg" class="img-user"/>${post.name}
+  <div class="feed">
+    <div class="name-user">
+        <img src="./img/user.svg" class="img-user"/>${post.name}        
+    </div>
+    <div class="data">
         <span>${post.data}</span>
-      </div>
-      <div>
+    </div>
+    <div>
         <textarea readonly class="posts" type="text">${post.message}</textarea>
-        <div class="btn">
-        <li><img src="./img/heart.svg" />${post.like}</li>
-        <li><img src="./img/deletar.svg" /></li>
-        <li><img src="./img/privado.svg" />${post.privado}</li>
-        <li><img src="./img/publico.svg" /></li>
-        <li><img class="post-btn" src="./img/seta.svg" /></li>
-        </div>
-        </div>
-      </div> 
+      <div class="btn">
+          <li><img src="./img/heart.svg" />${post.like}</li>
+          <li><img src="./img/deletar.svg" /></li>
+          <li><img src="./img/privado.svg" />${post.privado}</li>
+          <li><img src="./img/publico.svg" /></li>
+          <li><img class="post-btn" src="./img/seta.svg" /></li>
+      </div>
+    </div>
+  </div> 
  
  `).join('');
   };
