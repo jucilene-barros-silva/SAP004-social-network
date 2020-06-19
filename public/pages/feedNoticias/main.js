@@ -71,7 +71,6 @@ export const feed = () => {
       });
     }, 2000);
 
-
     const btnDeletePost = container.querySelectorAll('.btnL-delete');
     btnDeletePost.forEach((btn) => {
       btn.addEventListener('click', (e) => {
