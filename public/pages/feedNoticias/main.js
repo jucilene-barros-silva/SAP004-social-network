@@ -1,9 +1,5 @@
 import {
-<<<<<<< Updated upstream
-  createPost, readPost, addLike, deletePost,
-=======
-  createPost, readPost, toggleStar, currentUser,
->>>>>>> Stashed changes
+  createPost, readPost, deletePost, addLike,
 } from './data.js';
 
 export const feed = () => {
@@ -14,11 +10,7 @@ export const feed = () => {
     <div class="feed">
       <div class="name-user">
         <img src="" class="img-user"/>
-<<<<<<< Updated upstream
         <p id="name-user"></p>
-=======
-        <p>${currentUser.userName}</p>
->>>>>>> Stashed changes
         </div>
       <form>
         <div class="msg">        
@@ -26,7 +18,7 @@ export const feed = () => {
         </div>
         <div class="btn">
           <li><img id='icones' src="./img/heart.svg" /></li>
-          <li><label for="Privado"><img class="privado" value="1" src="./img/privado.svg" /><input type="checkbox" id="privado"/></label></li>
+          <li><img class="img-privado" src="./img/privado.svg" /><input type="checkbox" class="privado" /></li>
           <li><img id='icones' class="btn-send" src="./img/seta.svg" /></li>          
         </div>
       </form>
@@ -39,10 +31,8 @@ export const feed = () => {
       container.querySelector('#name-user').innerHTML = firebase.auth().currentUser.displayName;
     }
   });
-  // const photoBtn = container.querySelector('.photo-btn');
-  // const photo = container.querySelector('.img-user');
-  // const username = container.querySelector('.username');
-  // const block = container.querySelector('.block');
+
+
   const msgFeed = container.querySelector('.msg-feed');
   const btnSend = container.querySelector('.btn-send');
 
@@ -76,18 +66,18 @@ export const feed = () => {
       btnLike.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           const uidPost = e.target.getAttribute('id');
-          // addLike(uidPost);
-          const uid = firebase.auth().currentUser.uid;
-          console.log(uid);
-          toggleStar(uidPost, uid);
+          addLike(uidPost);
         });
       });
     }, 2000);
 
-    const btnDeletePost = container.querySelector('.btnL-delete');
-    btnDeletePost.addEventListener('click', (e) => {
-      const uidPost = e.target.getAttribute('id');
-      deletePost(uidPost);
+
+    const btnDeletePost = container.querySelectorAll('.btnL-delete');
+    btnDeletePost.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const uidPost = e.target.getAttribute('id');
+        deletePost(uidPost);
+      });
     });
   };
 
@@ -102,7 +92,8 @@ export const feed = () => {
   btnSend.addEventListener('click', (e) => {
     e.preventDefault();
     const msg = container.querySelector('.posts');
-    createPost(msg.value);
+    const privado = container.querySelector('.privado');
+    createPost(msg.value, privado.checked);
     msgFeed.innerHTML = '';
   });
 
