@@ -62,3 +62,11 @@ textarea {
     margin: 10px;
 }
 
+.publico .hide {
+    display:none;
+}
+
+/* 
+.privado {
+
+} */
