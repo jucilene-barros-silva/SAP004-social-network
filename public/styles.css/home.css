@@ -50,7 +50,8 @@ button:hover{
 
 input[type=e-mail], 
 input[type=password],
-input[type=text] { 
+input[type=text],
+input[type=url] { 
    
     padding: 12px 20px; 
     margin: 8px 0; 
