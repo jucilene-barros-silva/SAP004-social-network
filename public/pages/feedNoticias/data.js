@@ -7,20 +7,35 @@ export const createPost = text => firebase.firestore().collection('posts').add({
   data: firebase.firestore.Timestamp.fromDate(new Date()).toDate().toLocaleString('pt-BR'),
   privado: 'falso',
 })
-  .then(docRef => (('Document written with ID: ', docRef.id)))
-  .catch(error => (('Error adding document: ', error)));
+  .then(docRef => (docRef.id));
 
-
-export const readPost = callback => firebase.firestore().collection('posts')
+export const readPost = callback => firebase.firestore().collection('posts').orderBy('data', 'desc')
   .onSnapshot((querySnapshot) => {
     const posts = [];
     querySnapshot.forEach((doc) => {
-      posts.push(doc.data());
+      posts.push({ postId: doc.id, ...doc.data() });
     });
     callback(posts);
   });
 
-export const getUser = (callback) => {
-  const user = firebase.auth().currentUser.displayName;
-  callback(user);
-};
+export function addLike(uidPost) {
+  const likes = firebase.firestore().collection('posts').doc(uidPost);
+  likes.update({
+    like: firebase.firestore.FieldValue.increment(1),
+  }).then(() => {
+    console.log('Dei like');
+  });
+}
+
+// export function currentUser(name) {
+//   let userInfo;
+//   firebase.auth().onAuthStateChanged((user) => {
+//     if (user) {
+//       userInfo = { uid: firebase.auth().currentUser.uid, name: firebase.auth().currentUser.displayName };
+//       name(firebase.auth().currentUser.displayName);
+//     }
+//     console.log(userInfo);
+//   });
+
+//   return userInfo;
+// }
