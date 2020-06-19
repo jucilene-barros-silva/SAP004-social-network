@@ -15,6 +15,7 @@ export const readPost = callback => firebase.firestore().collection('posts').ord
     querySnapshot.forEach((doc) => {
       posts.push({ postId: doc.id, ...doc.data() });
     });
+    console.log(callback(posts));
     callback(posts);
   });
 
@@ -27,15 +28,6 @@ export function addLike(uidPost) {
   });
 }
 
-// export function currentUser(name) {
-//   let userInfo;
-//   firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//       userInfo = { uid: firebase.auth().currentUser.uid, name: firebase.auth().currentUser.displayName };
-//       name(firebase.auth().currentUser.displayName);
-//     }
-//     console.log(userInfo);
-//   });
-
-//   return userInfo;
-// }
+export function deletePost(uidPost) {
+  firebase.firestore().collection('posts').doc(uidPost).delete();
+}

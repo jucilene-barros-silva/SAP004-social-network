@@ -1,5 +1,5 @@
 import {
-  createPost, readPost, addLike,
+  createPost, readPost, addLike, deletePost,
 } from './data.js';
 
 export const feed = () => {
@@ -10,6 +10,7 @@ export const feed = () => {
     <div class="feed">
       <div class="name-user">
         <img src="" class="img-user"/>
+        <p id="name-user"></p>
         </div>
       <form>
         <div class="msg">        
@@ -17,9 +18,7 @@ export const feed = () => {
         </div>
         <div class="btn">
           <li><img id='icones' src="./img/heart.svg" /></li>
-          <li><img id='icones' src="./img/add.svg" /></li>
-          <li><img id='icones' class ="unblock" src="../img/publico.svg" /></li>
-          <li><img id='icones' class ="unblock" src="../img/privado.svg" /></li>
+          <li><label for="Privado"><img class="privado" value="1" src="./img/privado.svg" /><input type="checkbox" id="privado"/></label></li>
           <li><img id='icones' class="btn-send" src="./img/seta.svg" /></li>          
         </div>
       </form>
@@ -27,7 +26,11 @@ export const feed = () => {
       </div>
       <div class="msg-feed"></div>  
   `;
-
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      container.querySelector('#name-user').innerHTML = firebase.auth().currentUser.displayName;
+    }
+  });
   // const photoBtn = container.querySelector('.photo-btn');
   // const photo = container.querySelector('.img-user');
   // const username = container.querySelector('.username');
@@ -48,18 +51,18 @@ export const feed = () => {
     <div>
         <textarea readonly class="posts" type="text">${post.message}</textarea>
       <div class="btn">
-        <ul class="ul" id="${post.id}" >
+        <ul class="ul" id="${post.postId}" >
           <li><img class="btnLike" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>
-          <li><img src="./img/deletar.svg"  /></li>
-          <li><img class="privado" value="1" src="./img/privado.svg" />${post.privado}</li>
+          <li><img class= "btnL-delete"id="${post.postId}" src="./img/deletar.svg"  /></li>
           <li><img class="publico" value="0" src="./img/publico.svg" /></li>
           <li><img class="post-btn" src="./img/seta.svg" /></li>
         </ul>
       </div>
     </div>
   </div> 
- 
- `).join('');
+    
+`).join('');
+
     setTimeout(() => {
       const btnLike = container.querySelectorAll('.btnLike');
       btnLike.forEach((btn) => {
@@ -69,6 +72,12 @@ export const feed = () => {
         });
       });
     }, 2000);
+
+    const btnDeletePost = container.querySelector('.btnL-delete');
+    btnDeletePost.addEventListener('click', (e) => {
+      const uidPost = e.target.getAttribute('id');
+      deletePost(uidPost);
+    });
   };
 
   // const btsPub = container.querySelectorAll('.publico');
@@ -84,12 +93,6 @@ export const feed = () => {
     const msg = container.querySelector('.posts');
     createPost(msg.value);
     msgFeed.innerHTML = '';
-  });
-
-  const unblock = container.querySelector('.unblock');
-  unblock.addEventListener('click', (e) => {
-    e.preventDefault();
-    unblock.classList.toggle('block');
   });
 
   return container;
