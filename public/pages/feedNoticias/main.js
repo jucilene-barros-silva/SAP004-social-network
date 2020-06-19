@@ -1,5 +1,9 @@
 import {
+<<<<<<< Updated upstream
   createPost, readPost, addLike, deletePost,
+=======
+  createPost, readPost, toggleStar, currentUser,
+>>>>>>> Stashed changes
 } from './data.js';
 
 export const feed = () => {
@@ -10,7 +14,11 @@ export const feed = () => {
     <div class="feed">
       <div class="name-user">
         <img src="" class="img-user"/>
+<<<<<<< Updated upstream
         <p id="name-user"></p>
+=======
+        <p>${currentUser.userName}</p>
+>>>>>>> Stashed changes
         </div>
       <form>
         <div class="msg">        
@@ -68,7 +76,10 @@ export const feed = () => {
       btnLike.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           const uidPost = e.target.getAttribute('id');
-          addLike(uidPost);
+          // addLike(uidPost);
+          const uid = firebase.auth().currentUser.uid;
+          console.log(uid);
+          toggleStar(uidPost, uid);
         });
       });
     }, 2000);
