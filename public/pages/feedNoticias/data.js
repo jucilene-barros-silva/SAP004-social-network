@@ -14,7 +14,7 @@ export const readPost = callback => firebase.firestore().collection('posts').ord
   .onSnapshot((querySnapshot) => {
     const posts = [];
     querySnapshot.forEach((doc) => {
-      if (!doc.data().locked || doc.data().user === firebase.auth().currentUser.uid) {
+      if (!doc.data().locked || doc.data().id === firebase.auth().currentUser.uid) {
         posts.push({ postId: doc.id, ...doc.data() });
       }
     });

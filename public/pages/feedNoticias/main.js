@@ -17,7 +17,6 @@ export const feed = () => {
         <textarea class="posts" type="text"></textarea>
         </div>
         <div class="btn">
-          <li><img id='icones' src="./img/heart.svg" /></li>
           <li><img class="img-privado" src="./img/privado.svg" /><input type="checkbox" class="privado" /></li>
           <li><img id='icones' class="btn-send" src="./img/seta.svg" /></li>          
         </div>
@@ -43,18 +42,17 @@ export const feed = () => {
         <img src="./img/user.svg" class="img-user"/>${post.name}        
     </div>
     <div class="data">
-        <span>Publicado dia:${post.data}</span>
-        <span class="uidPost">${post.postId}</span>
+        <span>Publicado: ${post.data}</span>
     </div>
     <div>
         <textarea readonly class="posts" type="text">${post.message}</textarea>
       <div class="btn">
-        <ul class="ul" id="${post.postId}" >
+        
           <li><img class="btnLike" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>
-          <li><img class= "btnL-delete"id="${post.postId}" src="./img/deletar.svg"  /></li>
-          <li><img class="publico" value="0" src="./img/publico.svg" /></li>
+          <li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
+          <li><img class="edital" src="./img/editar.svg" /></li>
           <li><img class="post-btn" src="./img/seta.svg" /></li>
-        </ul>
+       
       </div>
     </div>
   </div> 
@@ -93,6 +91,8 @@ export const feed = () => {
     const msg = container.querySelector('.posts');
     const privado = container.querySelector('.privado');
     createPost(msg.value, privado.checked);
+    msg.value = '';
+    privado.checked = false;
     msgFeed.innerHTML = '';
   });
 
