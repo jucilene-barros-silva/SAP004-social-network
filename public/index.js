@@ -19,6 +19,12 @@ window.addEventListener('load', () => {
   loading();
 });
 
+const menu = document.querySelector('.container .menu');
+menu.addEventListener('click', () => {
+  const lista = document.querySelector('.lista');
+  lista.classList.toggle('hide');
+});
+
 
 // // Função-menu-responsivo
 

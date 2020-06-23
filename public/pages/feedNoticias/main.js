@@ -49,16 +49,18 @@ export const feed = () => {
     </div>
     <div class="data">
         <span>Publicado: ${post.data}</span>
+        <span id="${post.id}" class="uidUser"></span>
     </div>
     <div>
-        <textarea readonly class="posts" type="text">${post.message}</textarea>
-      <div class="btn">
-          <li><img class="btnLike" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>
+        <textarea readonly class="posts" type="text" requered>${post.message}</textarea>
+      <div class="btn">        
+          <li><img class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>
           <li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
-          <li><img class="edital" id="${post.postId}" src="./img/editar.svg" /></li>
-          <li><img class="post-btn" src="./img/seta.svg" /></li>
+          <li><img class="edital" src="./img/editar.svg" /></li>
+          <li>${post.locked}</li>
+          <li><img class="post-btn" src="./img/seta.svg" /></li>       
       </div>
-    </div>
+    </div> 
   </div> 
     
 `).join('');
@@ -108,6 +110,7 @@ export const feed = () => {
     privado.checked = false;
     msgFeed.innerHTML = '';
   });
+
 
   return container;
 };
