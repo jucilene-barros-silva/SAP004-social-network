@@ -11,7 +11,7 @@ export const createAccount = () => {
     <h3>Cadastre e entre para a nossa comunidade.</h3>
       <form method= "post" class="form-register">
         <input id="email" type= "e-mail" placeholder = "E-mail" requered>
-        <input id="full-name" type= "url" placeholder = "Foto de perfil" requered>
+        <input id="full-name" type= "url" placeholder = "http://foto-de-perfil" requered>
         <input id="user-name" type= "text" placeholder = "Nome de usuário" requered>
         <input id="password" type= "password" placeholder = "Password" requered>    
         <button type="submit" class="btCadastro">Cadastre-se</button>
