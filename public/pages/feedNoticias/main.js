@@ -1,10 +1,16 @@
 import {
-  createPost, readPost, deletePost, addLike,
+  createPost, readPost, deletePost, addLike, updatePost,
 } from './data.js';
 
 export const feed = () => {
   const container = document.createElement('div');
   container.classList.add('feedcontainer');
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      container.querySelector('#name-user').innerHTML = firebase.auth().currentUser.displayName;
+    }
+  });
 
   container.innerHTML = `
     <div class="feed">
@@ -25,11 +31,11 @@ export const feed = () => {
       </div>
       <div class="msg-feed"></div>  
   `;
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      container.querySelector('#name-user').innerHTML = firebase.auth().currentUser.displayName;
-    }
-  });
+  // firebase.auth().onAuthStateChanged((user) => {
+  //   if (user) {
+  //     container.querySelector('#name-user').innerHTML = firebase.auth().currentUser.displayName;
+  //   }
+  // });
 
 
   const msgFeed = container.querySelector('.msg-feed');
@@ -47,12 +53,10 @@ export const feed = () => {
     <div>
         <textarea readonly class="posts" type="text">${post.message}</textarea>
       <div class="btn">
-        
           <li><img class="btnLike" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>
           <li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
-          <li><img class="edital" src="./img/editar.svg" /></li>
+          <li><img class="edital" id="${post.postId}" src="./img/editar.svg" /></li>
           <li><img class="post-btn" src="./img/seta.svg" /></li>
-       
       </div>
     </div>
   </div> 
@@ -64,7 +68,8 @@ export const feed = () => {
       btnLike.forEach((btn) => {
         btn.addEventListener('click', (e) => {
           const uidPost = e.target.getAttribute('id');
-          addLike(uidPost);
+          const user = firebase.auth().currentUser.uid;
+          addLike(uidPost, user);
         });
       });
     }, 2000);
@@ -74,6 +79,14 @@ export const feed = () => {
       btn.addEventListener('click', (e) => {
         const uidPost = e.target.getAttribute('id');
         deletePost(uidPost);
+      });
+    });
+
+    const btnEditPost = container.querySelectorAll('.edital');
+    btnEditPost.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const uidPost = e.target.getAttribute('id');
+        updatePost(uidPost);
       });
     });
   };

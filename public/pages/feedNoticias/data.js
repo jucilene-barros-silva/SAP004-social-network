@@ -6,9 +6,8 @@ export const createPost = (text, locked) => firebase.firestore().collection('pos
   like: 0,
   data: firebase.firestore.Timestamp.fromDate(new Date()).toDate().toLocaleString('pt-BR'),
   locked,
-  // howLiked: firebase.firestore.FieldValue(firebase.auth().currentUser.uid),
-})
-  .then(docRef => (docRef.id));
+  whoLiked: [],
+}).then(docRef => (docRef.id));
 
 export const readPost = callback => firebase.firestore().collection('posts').orderBy('data', 'desc')
   .onSnapshot((querySnapshot) => {
@@ -21,16 +20,35 @@ export const readPost = callback => firebase.firestore().collection('posts').ord
     callback(posts);
   });
 
+const updateLike = (likes, whoLiked, uidPost) => {
+  firebase.firestore().collection('posts').doc(uidPost).update({
+    like: likes,
+    whoLiked,
+  })
+    .then(() => {
+      console.log('Dei like');
+    });
+};
 
-export function addLike(uidPost) {
-  const likes = firebase.firestore().collection('posts').doc(uidPost);
-  likes.update({
-    like: firebase.firestore.FieldValue.increment(1),
-    howLiked: firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.uid),
-  }).then(() => {
-    console.log('Dei like');
-  });
+export function addLike(uidPost, user) {
+  firebase.firestore().collection('posts').doc(uidPost).get()
+    .then((doc) => {
+      console.log(user);
+      const whoLiked = doc.data().whoLiked;
+      let likes = doc.data().like;
+      if (whoLiked.includes(user)) {
+        likes = firebase.firestore.FieldValue.increment(-1);
+        console.log(likes);
+        const index = whoLiked.findIndex(elem => elem === user);
+        whoLiked.splice(index, 1);
+      } else {
+        likes = firebase.firestore.FieldValue.increment(1);
+        whoLiked.push(user);
+      }
+      updateLike(likes, whoLiked, uidPost);
+    });
 }
+// whoLiked = firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.uid);
 
 export function deletePost(uidPost) {
   firebase.firestore().collection('posts').doc(uidPost).delete();
