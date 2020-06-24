@@ -41,7 +41,7 @@ export const feed = () => {
     msgFeed.innerHTML = array.map(post => `
   <div class="feed">
     <div class="name-user">
-    ${post.id === firebase.auth().currentUser.uid ? `<img src="${firebase.auth().currentUser.photoURL}" class="photo img-user"/>` : '<img src="./img/avatar2.png" class="img-user"/>'} ${post.name}            
+    <img src="${post.photo}" class="photo img-user"/>${post.name}            
     </div>
     <div class="data">
         <span>Publicado: ${post.data}</span>
