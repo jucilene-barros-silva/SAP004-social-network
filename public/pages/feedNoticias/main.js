@@ -15,7 +15,7 @@ export const feed = () => {
   container.innerHTML = `
     <div class="feed">
       <div class="name-user">
-        <img src="" class="img-user"/>
+      <img src="../img/avatar.png" class="img-user"/>
         <p id="name-user"></p>
         </div>
       <form>
@@ -45,7 +45,7 @@ export const feed = () => {
     msgFeed.innerHTML = array.map(post => `
   <div class="feed">
     <div class="name-user">
-        <img src="./img/user.svg" class="img-user"/>${post.name}        
+        <img src="../img/avatar.png" class="img-user"/>${post.name}        
     </div>
     <div class="data">
         <span>Publicado: ${post.data}</span>
@@ -92,13 +92,6 @@ export const feed = () => {
       });
     });
   };
-
-  // const btsPub = container.querySelectorAll('.publico');
-  // btsPub.forEach((bt) => {
-  //   bt.addEventListener('click', (e) => {
-  //     bt.classList.toggle('.hide');
-  //   });
-  // });
 
   readPost(postTemplate);
   btnSend.addEventListener('click', (e) => {
