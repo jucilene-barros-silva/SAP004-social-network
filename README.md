@@ -1,6 +1,5 @@
 # Laboratória - 4ª Geração :two_hearts: 
 
-****
 ## :sparkles: Projeto: Rede Social - Backpackers
 ### Deploy: https://social-network-d6767.web.app/
 ***
@@ -11,27 +10,27 @@ Backpacker, ou "mochileiro" em português, é uma rede social desenvolvida para 
 São geralmente muito sociais e, a todo o momento, fazem amizades com outros mochileiros pela estrada e com os habitantes das localidades visitadas e para facilitar esse compartilhamento de informações desenvolvemos essa aplicação para a comunidade.
 
 Veja [aqui](https://trello.com/b/wqHM3qO5/social-network)  o nosso planejamento.
-
-## 2. MVP - Mínimo produto viável
 ****
+## 2. MVP - Mínimo produto viável
+
 ![](/public/img/REDE-SOCIAL4.png)
 ![](/public/img/REDE-SOCIAL5.png)
 
-## 3. Soft Skills
 ****
+## 3. Soft Skills
+
 Utilizamos no desenvolvimento da nossa aplicação uma **Single-Page Application - SPA**, desenhada com enfoque **Mobile First** e o banco de dados **Firebase**.
 
 Além de **HTML5**, **CCS3** e **JavaScript(ES6+)**.
 
+****
 
 ### :warning: Pré-Requisitos:
-****
 
 1. Node.js e NPM instalado
+****
 
 ### 🚀 Rodando o projeto localmente
-
-****
 
 1. Clone o projeto na sua máquina
 
