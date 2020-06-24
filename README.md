@@ -7,7 +7,7 @@
 
 Backpacker, ou "mochileiro" em português, é uma rede social desenvolvida para compartilhar dicas de viagem entre pessoas que praticam o backpacking, cultura que abrange pessoas entre 16 e 80 anos que viajam explorando o mundo, na maioria das vezes, com uma verba limitada de dinheiro, uma mochila nas costas e desejo de conhecer novos lugares e culturas. 
 
-São geralmente muito sociais e, a todo o momento, fazem amizades com outros mochileiros pela estrada e com os habitantes das localidades visitadas e para facilitar esse compartilhamento de informações desenvolvemos essa aplicação para a comunidade.
+São geralmente muito sociais e a todo o momento, fazem amizades com outros mochileiros pela estrada e com os habitantes das localidades visitadas e para facilitar esse compartilhamento de informações desenvolvemos uma aplicação para a comunidade se comunicar, onde é possível postar uma mensagem, curtir, deletar e editar o post.
 
 Veja [aqui](https://trello.com/b/wqHM3qO5/social-network)  o nosso planejamento.
 ****
@@ -17,7 +17,7 @@ Veja [aqui](https://trello.com/b/wqHM3qO5/social-network)  o nosso planejamento.
 ![](/public/img/REDE-SOCIAL5.png)
 
 ****
-## 3. Soft Skills
+## 3. Skills
 
 Utilizamos no desenvolvimento da nossa aplicação uma **Single-Page Application - SPA**, desenhada com enfoque **Mobile First** e o banco de dados **Firebase**.
 
@@ -50,13 +50,25 @@ cd SAP004-social-network
 npm install
 ```
 
-4. Rode o projeto na sua máquina
+4. Instale o banco de dados
+
+```sh
+npm install -g firebase -tools
+```
+
+5. Inicie o banco de dados
+
+```sh
+firebase init
+```
+
+6. Rode o projeto na sua máquina
 
 ```sh
 firebase serve
 ```
 
-5. Abra o navegador e visualize o projeto
+7. Abra o navegador e visualize o projeto
 
 ```sh
 http://localhost:5000
