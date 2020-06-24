@@ -52,11 +52,12 @@ export const feed = () => {
         <span id="${post.id}" class="uidUser"></span>
     </div>
     <div>
-        <textarea readonly class="posts" type="text" requered>${post.message}</textarea>
+        <textarea readonly id="editarPost" class="posts" type="text" requered>${post.message}</textarea>
       <div class="btn">        
           <li><img class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>
-          <li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
-          <li><img class="edital" src="./img/editar.svg" /></li>
+          ${post.id === firebase.auth().currentUser.uid ? `<li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
+                                                          <li><img class="btnEditar" id="${post.postId}" src="./img/editar.svg" /></li>` : ''}
+          
           <li>${post.locked}</li>
           <li><img class="post-btn" src="./img/seta.svg" /></li>       
       </div>
@@ -75,6 +76,17 @@ export const feed = () => {
         });
       });
     }, 2000);
+
+    // const btnEditar = container.querySelectorAll('.btnEditar');
+    // btnEditar.forEach((btn) => {
+    //   btn.addEventListener('click', () => {
+
+    //     const post = container.querySelectorAll('#editarPost');
+    //     post.forEach((text) => {
+    //       text.removeAttribute('readonly');
+    //     });
+    //   });
+    // });
 
     const btnDeletePost = container.querySelectorAll('.btnL-delete');
     btnDeletePost.forEach((btn) => {

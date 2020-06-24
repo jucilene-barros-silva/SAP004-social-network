@@ -48,12 +48,24 @@ export function deletePost(uidPost) {
   firebase.firestore().collection('posts').doc(uidPost).delete();
 }
 
-const updateLike = (likes, whoLiked, uidPost) => {
+export const updateLike = (likes, whoLiked, uidPost) => {
   firebase.firestore().collection('posts').doc(uidPost).update({
     like: likes,
     whoLiked,
   });
 };
+
+export const updatePost = (likes, whoLiked, uidPost) => {
+  firebase.firestore().collection('posts').doc(uidPost).update({
+    like: likes,
+    whoLiked,
+  });
+};
+
+// export const comments = firebase.firestore().collection('post').doc(idComment);
+// comments.update({
+//   comments: firebase.firestore.FieldValue.arrayUnion(comentario);
+// })
 
 export function addLike(uidPost, user) {
   firebase.firestore().collection('posts').doc(uidPost).get()
