@@ -19,14 +19,14 @@ window.addEventListener('load', () => {
   loading();
 });
 
-const menu = document.querySelector('.container .menu');
+const menu = document.querySelector('.nav-container');
 menu.addEventListener('click', () => {
-  const lista = document.querySelector('.lista');
+  const lista = document.querySelector('.container');
   lista.classList.toggle('hide');
 });
 
 
-// // Função-menu-responsivo
+// // Função-menu-responsivofir
 
 // function iconResp() {
 //   const addClass = document.querySelector('.container');
