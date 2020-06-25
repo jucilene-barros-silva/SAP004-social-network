@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     width: 90%;
-    margin: auto;
+    margin: 10px auto;
     padding: 10px;
     border-radius: 8px;
 }
@@ -57,10 +57,6 @@ textarea {
 
 .msg1 {
     background-color: white;
-}
-
-.feed {
-    margin: 10px;
 }
 
 .publico .hide {

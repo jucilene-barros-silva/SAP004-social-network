@@ -35,7 +35,6 @@ export const home = () => {
     const password = container.querySelector('#password').value;
     const error = container.querySelector('.error');
     error.innerHTML = loginEmailAndPass(email, password).then((result) => {
-      console.log(loginEmailAndPass(email, password));
       error.innerHTML = result;
     });
     email.reset();
