@@ -9,13 +9,15 @@ export const feed = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       container.querySelector('#name-user').innerHTML = firebase.auth().currentUser.displayName;
+      const img = container.querySelector('.img-user');
+      img.src = firebase.auth().currentUser.photoURL;
     }
   });
 
   container.innerHTML = `
     <div class="feed">
       <div class="name-user">
-      <img src="../img/avatar.png" class="img-user"/>
+      <img src="" class="img-user"/>
         <p id="name-user"></p>
         </div>
       <form>
@@ -31,12 +33,6 @@ export const feed = () => {
       </div>
       <div class="msg-feed"></div>  
   `;
-  // firebase.auth().onAuthStateChanged((user) => {
-  //   if (user) {
-  //     container.querySelector('#name-user').innerHTML = firebase.auth().currentUser.displayName;
-  //   }
-  // });
-
 
   const msgFeed = container.querySelector('.msg-feed');
   const btnSend = container.querySelector('.btn-send');
@@ -45,7 +41,7 @@ export const feed = () => {
     msgFeed.innerHTML = array.map(post => `
   <div class="feed">
     <div class="name-user">
-        <img src="../img/avatar.png" class="img-user"/>${post.name}        
+    <img src="${post.photo}" class="photo img-user"/>${post.name}            
     </div>
     <div class="data">
         <span>Publicado: ${post.data}</span>
@@ -53,13 +49,14 @@ export const feed = () => {
     </div>
     <div>
         <textarea readonly id="editarPost" class="posts" type="text" requered>${post.message}</textarea>
-      <div class="btn">        
-          <li><img class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>
-          ${post.id === firebase.auth().currentUser.uid ? `<li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
-                                                          <li><img class="btnEditar" id="${post.postId}" src="./img/editar.svg" /></li>` : ''}
+      <div class="btn">
+          ${post.id === firebase.auth().currentUser.uid ? `<li><img disabled class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>` : `<li><img class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>`}        
           
-          <li>${post.locked}</li>
-          <li><img class="post-btn" src="./img/seta.svg" /></li>       
+          ${post.id === firebase.auth().currentUser.uid ? `<li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
+          <li><img class="btnEditar" id="${post.postId}" src="./img/editar.svg" /></li>` : ''}
+          ${post.locked === true ? '<li><img class="img-privado" src="./img/cadeado-red.png" />' : '<li><img class="img-privado" src="./img/publico.svg" />'}
+          
+                
       </div>
     </div> 
   </div> 
