@@ -37,9 +37,12 @@ export const home = () => {
     const email = container.querySelector('#email').value;
     const password = container.querySelector('#password').value;
     const error = container.querySelector('.error');
-    error.innerHTML = loginEmailAndPass(email, password).then((result) => {
+    loginEmailAndPass(email, password).then((result) => {
       error.innerHTML = result;
     });
+    email.reset();
+    password.reset();
+    error.reset();
   });
 
   const btGoogle = container.querySelector('.login-google .google');

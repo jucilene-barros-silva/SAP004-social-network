@@ -11,8 +11,7 @@ export const createPost = (text, locked) => firebase.firestore().collection('pos
   data: firebase.firestore.Timestamp.fromDate(new Date()).toDate().toLocaleString('pt-BR'),
   locked,
   whoLiked: [],
-})
-  .then(docRef => (docRef.id));
+});
 
 export const readPost = callback => firebase.firestore().collection('posts').orderBy('data', 'desc')
   .onSnapshot((querySnapshot) => {
@@ -42,11 +41,6 @@ export const updatePost = (likes, whoLiked, uidPost) => {
     whoLiked,
   });
 };
-
-// export const comments = firebase.firestore().collection('post').doc(idComment);
-// comments.update({
-//   comments: firebase.firestore.FieldValue.arrayUnion(comentario);
-// })
 
 export function addLike(uidPost, user) {
   firebase.firestore().collection('posts').doc(uidPost).get()

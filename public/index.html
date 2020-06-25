@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./styles.css/perfil.css">
   <link rel="stylesheet" href="./styles.css/responsive.css">
   <link rel="stylesheet" href="./styles.css/feed.css">
+  <link rel="stylesheet" href="./styles.css/menu.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Ubuntu:wght@700&display=swap"
     rel="stylesheet">
     <link rel="shortcut icon" href="../public/img/mundo.png" type="image/x-icon">
@@ -20,13 +21,14 @@
 
 <body>
   <header class="header" id="header">
-    <nav class="nav-container">      
-      <ul class="container">
-        <li class="item"><i class="fa fa-bars fa-2x"></i></li>
-        <li class="item">Backpackers</li>
-        <li class="item"><img class="logout"src="img/logout.svg" /></li>        
-      </ul>
-    </nav>
+    <nav class="nav-container">
+      <button id="menu"><i class="fa fa-bars fa-2x"></i></button>     
+      <div class="container">
+        <a href="#perfil">Perfil</a>
+        <a href="#">Sobre</a>
+        <a href="#" id="logout">Sair</a>
+      </div>
+     </nav>
   </header>
   <main id="root"></main>
   <script src="/__/firebase/7.14.6/firebase-app.js"></script>
