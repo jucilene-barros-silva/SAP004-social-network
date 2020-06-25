@@ -31,8 +31,7 @@ export const feed = () => {
       </form>
       
       </div>
-      <div class="msg-feed"></div>  
-  `;
+      <div class="msg-feed"></div>`;
 
   const msgFeed = container.querySelector('.msg-feed');
   const btnSend = container.querySelector('.btn-send');

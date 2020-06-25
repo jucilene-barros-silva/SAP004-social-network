@@ -1,26 +1,15 @@
 export function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
-    .then((result) => {
+    .then(() => {
       window.location.href = '#feed';
-      const token = result.credential.accessToken;
-      const user = result.user;
-      return (token, user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return (errorCode, errorMessage);
     });
 }
 
 export function loginEmailAndPass(email, password) {
   return firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((result) => {
+    .then(() => {
       window.location.href = '#feed';
-      const token = result.uid;
-      const user = result.user;
-      console.log(token, user);
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
@@ -53,7 +42,7 @@ export function logout() {
   });
 }
 
-const btLogout = document.querySelector('.logout');
+const btLogout = document.querySelector('#logout');
 btLogout.addEventListener('click', () => {
   logout();
   showHeader();

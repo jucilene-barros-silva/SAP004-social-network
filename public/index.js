@@ -19,27 +19,8 @@ window.addEventListener('load', () => {
   loading();
 });
 
-const menu = document.querySelector('.nav-container');
+const menu = document.querySelector('.#menu');
 menu.addEventListener('click', () => {
   const lista = document.querySelector('.container');
   lista.classList.toggle('hide');
 });
-
-
-// // Função-menu-responsivofir
-
-// function iconResp() {
-//   const addClass = document.querySelector('.container');
-
-//   if (addClass.className === 'container') {
-//     addClass.className += 'ativo';
-//   } else {
-//     addClass.className = 'container';
-//   }
-// }
-
-// const menu = document.querySelector('.icon');
-// menu.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   iconResp();
-// });
