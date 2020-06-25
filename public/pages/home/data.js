@@ -31,7 +31,7 @@ export function observador() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       window.location.href = '#feed';
-      showHeader();
+      showHeader  ();
     }
   });
 }

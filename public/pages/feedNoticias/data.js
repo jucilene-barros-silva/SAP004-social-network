@@ -24,29 +24,6 @@ export const readPost = callback => firebase.firestore().collection('posts').ord
     callback(posts);
   });
 
-<<<<<<< HEAD
-const updateLike = (likes, whoLiked, uidPost) => {
-  firebase.firestore().collection('posts').doc(uidPost).update({
-    like: likes,
-    whoLiked,
-  })
-    .then(() => {
-      console.log('Dei like');
-    });
-};
-
-// export function addLike(uidPost) {
-//   const likes = firebase.firestore().collection('posts').doc(uidPost);
-//   likes.update({
-//     like: firebase.firestore.FieldValue.increment(1),
-//     whoLiked: firebase.firestore.FieldValue.arrayUnion(firebase.auth().currentUser.uid),
-//   }).then(() => {
-//     console.log('Dei like');
-//   });
-// }
-
-=======
->>>>>>> milena
 export function deletePost(uidPost) {
   firebase.firestore().collection('posts').doc(uidPost).delete();
 }
