@@ -37,7 +37,9 @@ export const feed = () => {
   const btnSend = container.querySelector('.btn-send');
 
   const postTemplate = (array) => {
-    msgFeed.innerHTML = array.map(post => `
+    msgFeed.innerHTML = array
+      .map(
+        post => `
   <div class="feed">
     <div class="name-user">
     <img src="${post.photo}" class="photo img-user"/>${post.name}            
@@ -49,18 +51,26 @@ export const feed = () => {
     <div>
         <textarea readonly id="editarPost" class="posts" type="text" requered>${post.message}</textarea>
       <div class="btn">
-          ${post.id === firebase.auth().currentUser.uid ? `<li><img disabled class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>` : `<li><img class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>`}        
+          ${post.id === firebase.auth().currentUser.uid
+    ? `<li><img disabled class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>`
+    : `<li><img class="btnLike" name="${post.id}" id="${post.postId}" src="./img/heart.svg" />${post.like}</li>`}        
           
-          ${post.id === firebase.auth().currentUser.uid ? `<li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
-          <li><img class="btnEditar" id="${post.postId}" src="./img/editar.svg" /></li>` : ''}
-          ${post.locked === true ? '<li><img class="img-privado" src="./img/cadeado-red.png" />' : '<li><img class="img-privado" src="./img/publico.svg" />'}
+          ${post.id === firebase.auth().currentUser.uid
+    ? `<li><img class="btnL-delete" id="${post.postId}" src="./img/deletar.svg"  /></li>
+          <li><img class="btnEditar" id="${post.postId}" src="./img/editar.svg" /></li>`
+    : ''}
+          ${post.locked === true
+    ? '<li><img class="img-privado" src="./img/cadeado-red.png" />'
+    : '<li><img class="img-privado" src="./img/publico.svg" />'}
           
                 
       </div>
     </div> 
   </div> 
     
-`).join('');
+`,
+      )
+      .join('');
 
     setTimeout(() => {
       const btnLike = container.querySelectorAll('.btnLike');
@@ -111,7 +121,6 @@ export const feed = () => {
     privado.checked = false;
     msgFeed.innerHTML = '';
   });
-
 
   return container;
 };
