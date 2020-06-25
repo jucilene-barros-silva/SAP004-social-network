@@ -1,6 +1,4 @@
-// Aqui serão criados os eventos de Manipulação de DOM e templates
 import { loginGoogle, loginEmailAndPass, observador } from './data.js';
-
 
 export const home = () => {
   const container = document.createElement('div');
@@ -28,7 +26,6 @@ export const home = () => {
       </div>
     `;
 
-
   container.innerHTML = template;
 
   const loginBtn = container.querySelector('#login-btn');
@@ -40,6 +37,9 @@ export const home = () => {
     error.innerHTML = loginEmailAndPass(email, password).then((result) => {
       error.innerHTML = result;
     });
+    email.reset();
+    password.reset();
+    error.reset();
   });
 
   const btGoogle = container.querySelector('.login-google .google');

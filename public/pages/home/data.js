@@ -1,35 +1,28 @@
 export function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-      window.location.href = '#feed';
-      const token = result.credential.accessToken;
-      const user = result.user;
-      return (token, user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return (errorCode, errorMessage);
-    });
+  firebase.auth().signInWithPopup(provider).then(() => {
+    window.location.href = '#feed';
+  });
 }
 
 export function loginEmailAndPass(email, password) {
-  return firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((result) => {
+  return firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
       window.location.href = '#feed';
-      const token = result.uid;
-      const user = result.user;
-      console.log(token, user);
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
         return 'Senha incorreta!';
-      } if (error.code === 'auth/user-not-found') {
+      }
+      if (error.code === 'auth/user-not-found') {
         return 'E-mail não localizado!';
-      } if (error.code === 'auth/invalid-email') {
+      }
+      if (error.code === 'auth/invalid-email') {
         return 'E-mail invalido!';
-      } return `Codigo de error: ${error.code}`;
+      }
+      return `Codigo de error: ${error.code}`;
     });
 }
 
@@ -53,7 +46,7 @@ export function logout() {
   });
 }
 
-const btLogout = document.querySelector('.logout');
+const btLogout = document.querySelector('#logout');
 btLogout.addEventListener('click', () => {
   logout();
   showHeader();

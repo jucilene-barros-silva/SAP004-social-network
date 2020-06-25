@@ -11,7 +11,7 @@ function register(uid, photo, userName) {
 
 export function createUser(email, password, photo, userName) {
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => firebase.auth().currentUser.updateProfile({ displayName: `${userName}` }))
+    .then(() => firebase.auth().currentUser.updateProfile({ displayName: `${userName}`, photoURL: `${photo}` }))
     .then(() => { const uid = firebase.auth().currentUser.uid; register(uid, photo, userName); })
     .catch(error => `Codígo de error: ${error.message}`);
 }
