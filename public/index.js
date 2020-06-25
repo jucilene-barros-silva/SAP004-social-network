@@ -18,9 +18,3 @@ window.addEventListener('load', () => {
   renderPage();
   loading();
 });
-
-const menu = document.querySelector('.#menu');
-menu.addEventListener('click', () => {
-  const lista = document.querySelector('.container');
-  lista.classList.toggle('hide');
-});

@@ -1,5 +1,5 @@
 import {
-  createPost, readPost, deletePost, addLike,
+  createPost, readPost, deletePost, addLike, updatePost,
 } from './data.js';
 
 export const feed = () => {
@@ -99,6 +99,14 @@ export const feed = () => {
       btn.addEventListener('click', (e) => {
         const uidPost = e.target.getAttribute('id');
         deletePost(uidPost);
+      });
+    });
+
+    const btnEditPost = container.querySelectorAll('.edital');
+    btnEditPost.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const uidPost = e.target.getAttribute('id');
+        updatePost(uidPost);
       });
     });
   };
