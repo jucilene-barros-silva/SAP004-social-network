@@ -2,7 +2,7 @@
   color: white;
   border-radius: 15px;
   cursor: pointer;
-  background-color: rgb(231, 20, 20);
+  background-color: var(--second-color);
   font-size: 16px;
   padding: 5px 10px;
   border: none;
@@ -16,8 +16,8 @@
 }
 
 .container {
-  background-color:rgb(231, 20, 20);
-  min-width: 160px;  
+  background-color: var(--second-color);
+  min-width: 160px;
   z-index: 1;
   align-items: center;
   color: white;
@@ -25,5 +25,5 @@
 }
 
 .container .hide {
-  display: none;  
+  display: none;
 }
