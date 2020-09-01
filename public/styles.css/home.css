@@ -1,101 +1,98 @@
 .login-container {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-container .logo {
-    align-content: center;
+  align-content: center;
 }
 
 .logo img {
-    width: 320px;
-    height: 300px;
+  width: 320px;
+  height: 300px;
 }
 
 .form-container {
-    width: 90%;
+  width: 90%;
 }
 
 .form-login {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
-    background-color: var(--primary-color);
-    font-size: 16px;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    transition: background-color 400ms;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    box-sizing: border-box;
+  background-color: var(--primary-color);
+  font-size: 16px;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 400ms;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
 }
 
 button:hover {
-    background-color: var(--second-color);
+  background-color: var(--second-color);
 }
 
-input[type=e-mail],
-input[type=password],
-input[type=text],
-input[type=url] {
-
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-
+input[type="e-mail"],
+input[type="password"],
+input[type="text"],
+input[type="url"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
-
 
 .login-google .google {
-    border: 1px solid #E6E3E3;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 9px 20px;
-    margin: 8px 0;
-    display: flex;
-    align-items: center;
-    transition: 400ms;
-    font-size: 16px;
-    color: black;
-    justify-content: center;
+  border: 1px solid #e6e3e3;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 9px 20px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  transition: 400ms;
+  font-size: 16px;
+  color: black;
+  justify-content: center;
 }
 
 .login-google .google:hover {
-    background: rgb(236, 234, 234);
+  background: rgb(236, 234, 234);
 }
 
 .login-google .img {
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
-    display: flex;
-    justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .link-senha a {
-    font-size: 13px;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
+  font-size: 13px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
 .cadastro {
-    font-size: 13px;
-    display: flex;
-    justify-content: center;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
 }
 
 .form-container span {
-    font-size: 12px;
-    color: red;
+  font-size: 12px;
+  color: red;
 }

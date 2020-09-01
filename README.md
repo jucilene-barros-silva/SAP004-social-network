@@ -10,6 +10,8 @@ Backpacker, ou "mochileiro" em português, é uma rede social desenvolvida para 
 São geralmente muito sociais e a todo o momento, fazem amizades com outros mochileiros pela estrada e com os habitantes das localidades visitadas e para facilitar esse compartilhamento de informações desenvolvemos uma aplicação para a comunidade se comunicar, onde é possível postar uma mensagem, curtir, deletar e editar o post.
 
 Veja [aqui](https://trello.com/b/wqHM3qO5/social-network)  o nosso planejamento.
+
+![](/public/img/planejamento.png)
 ****
 ## 2. MVP - Mínimo produto viável
 
@@ -18,6 +20,18 @@ Veja [aqui](https://trello.com/b/wqHM3qO5/social-network)  o nosso planejamento.
 
 ****
 ## 3. Skills
+
+Utilizamos no desenvolvimento da nossa aplicação uma **Single-Page Application - SPA**, desenhada com enfoque **Mobile First** e o banco de dados **Firebase**.
+
+Além de **HTML5**, **CCS3** e **JavaScript(ES6+)**.
+
+****
+
+## 4. Roadmap
+
+- Edição de perfil/foto
+- Comentar
+- Compartilhar fotos
 
 Utilizamos no desenvolvimento da nossa aplicação uma **Single-Page Application - SPA**, desenhada com enfoque **Mobile First** e o banco de dados **Firebase**.
 

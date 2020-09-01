@@ -15,9 +15,9 @@
   display: inline-block;
 }
 
-.container-{
+/* .container-{
   display: block;
-}
+} */
 
 .container {
   display: none;
@@ -33,12 +33,12 @@
   text-decoration: none;
   font-weight: bold;
   display: block;
-  font-family: sans-serif;
+  font-family: sans-serif !important;
   font-size: 18px;
 }
 
-
-.container a:hover {
+.container:hover,
+a:hover {
   background-color: #f1f1f1;
   color: black !important;
 }

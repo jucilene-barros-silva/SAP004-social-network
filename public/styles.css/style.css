@@ -1,69 +1,64 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 :root {
-    --title-color: black;
-    --primary-color: #E8505B;
-    --second-color: rgb(231, 20, 20);
+  --title-color: black;
+  --primary-color: #e8505b;
+  --second-color: rgb(231, 20, 20);
 }
 
 html {
-
-    font-family: Roboto, sans-serif !important;
-
+  font-family: Roboto, sans-serif !important;
 }
 
 body {
-    background: #fafaf5;
-
+  background: #fafaf5;
 }
 
 ul,
 li {
-    list-style: none;
-    text-decoration: none;
-    text-transform: uppercase;
+  list-style: none;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 a:link {
-    text-decoration: none;
-    color: black;
-
+  text-decoration: none;
+  color: black;
 }
 
 a:hover {
-    color: rgb(38, 0, 255)
+  color: rgb(38, 0, 255);
 }
 
 #header {
-    display: none;
-    background-color: var(--second-color);
-    padding: 5px;
+  display: none;
+  background-color: var(--second-color);
+  padding: 5px;
 }
 
 #header a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 #header.block {
-    display: block;
-
+  display: block;
 }
 
 .item img {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
 .footer {
-    display: none;
+  display: none;
 }
