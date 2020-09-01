@@ -33,10 +33,6 @@ Além de **HTML5**, **CCS3** e **JavaScript(ES6+)**.
 - Comentar
 - Compartilhar fotos
 
-Utilizamos no desenvolvimento da nossa aplicação uma **Single-Page Application - SPA**, desenhada com enfoque **Mobile First** e o banco de dados **Firebase**.
-
-Além de **HTML5**, **CCS3** e **JavaScript(ES6+)**.
-
 ****
 
 ### :warning: Pré-Requisitos:
